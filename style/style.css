@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'obunto';
-  src: url('assets/fonts/Ubuntu-Bold.ttf');
+  src: url('../assets/fonts/Ubuntu-Bold.ttf');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'obunto';
-  src: url('assets/fonts/Ubuntu-Medium.ttf');
+  src: url('../assets/fonts/Ubuntu-Medium.ttf');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'obunto';
-  src: url('assets/fonts/Ubuntu-Regular.ttf');
+  src: url('../assets/fonts/Ubuntu-Regular.ttf');
   font-weight: 100;
   font-style: normal;
 }

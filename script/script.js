@@ -21,7 +21,7 @@ selectOption(1)
 next.addEventListener('click', () => {
 
   // Check if there are no more steps
-  if (currentStep >= steps.length) {
+  if (currentStep + 1 >= steps.length) {
     next.style.display = "none";
     console.log("Button disappeared");
     return;
