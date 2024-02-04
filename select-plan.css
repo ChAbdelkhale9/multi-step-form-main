@@ -1,0 +1,132 @@
+.select-plan {
+  display: none;
+  width: 100%;
+
+}
+
+.plan-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.plan-option:hover {
+  border-color: rgb(93, 86, 154);
+}
+
+.plan-option {
+  padding: 10px;
+  padding-top: 15px;
+  height: 130px;
+  border-radius: 10px;
+  border: rgb(226, 225, 228) solid 1px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.plan-option>img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  align-self: start;
+}
+
+.plan-info {
+  margin-top: auto;
+  text-align: start;
+}
+
+.plan-info p {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.plan-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: rgb(19, 38, 74);
+  margin-bottom: 5px;
+
+}
+
+.plan-price {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(159, 159, 168);
+}
+
+.free-months {
+  font-weight: 500;
+  color: rgb(19, 38, 74);
+  font-size: 13px;
+  display: none;
+}
+
+.selected {
+  border-color: rgb(93, 86, 154);
+  background-color: rgb(248, 249, 254);
+}
+
+.period {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(248, 249, 254);
+  height: 40px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.period p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(159, 159, 168);
+}
+
+.period .inPlan {
+  color: rgb(3, 41, 90);
+}
+
+.select-period {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 38px;
+  height: 19px;
+  background: rgb(3, 41, 90);
+  display: block;
+  border-radius: 20px;
+  position: relative;
+  margin: 0 18px;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.select-period:checked+label:after {
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 13px;
+}

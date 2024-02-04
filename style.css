@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'obunto';
+  src: url('assets/fonts/Ubuntu-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'obunto';
+  src: url('assets/fonts/Ubuntu-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'obunto';
+  src: url('assets/fonts/Ubuntu-Regular.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+
+.attribution {
+  margin-top: 30px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  margin: 0;
+  flex-direction: column;
+  font-family: 'obunto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  background-color: rgb(238, 245, 255);
+}
+
+.form_card {
+  display: flex;
+  width: 810px;
+  height: 515px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(58, 57, 57, 0.5);
+  padding: 18px;
+}
+
+
+@media (max-width:870px) {
+  .form_card {
+    width: 670px;
+    height: 500px;
+  }
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  height: 100%;
+}
+
+.titles {
+  margin: 50px 0;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 30px;
+  color: rgb(3, 41, 90);
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(159, 159, 168);
+}
+
+.btns {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: auto;
+}
+
+.btns>button {
+  font-family: 'obunto';
+  font-weight: 500;
+  font-size: 14px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.back {
+  background-color: transparent;
+  border: none;
+  color: rgb(159, 159, 168);
+  padding-left: 0;
+}
+
+.back:hover {
+  color: rgb(3, 41, 90);
+}
+
+.noneBack {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.next {
+  background-color: rgb(3, 41, 90);
+  border-radius: 5px;
+  border: none;
+  color: white;
+  width: 110px;
+}
+
+.next:hover {
+  background-color: rgb(23, 74, 139)
+}

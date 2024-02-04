@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .card {
+      width: 200px;
+      margin: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .selected {
+      border: 2px solid #3498db;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <script>
+
+  </script>
+
+</body>
+
+</html>
+
+<div class="select-plan">
+  <div class="titles">
+    <p class="title">Select your plan</p>
+    <p class="subtitle">You have the options of monthly or yearly billing</p>
+  </div>
+  <div class="plan-options">
+    <div class="plan-option" onclick="selectOption(1)" data-option="1">
+      <img src="assets/images/icon-arcade.svg">
+      <div class="plan-info">
+        <p class="plan-name">Arcade</p>
+        <p class="plan-price">$9/mo</p>
+      </div>
+    </div>
+    <div class="plan-option" onclick="selectOption(2)" data-option="2">
+      <img src="assets/images/icon-advanced.svg">
+      <div class="plan-info">
+        <p class="plan-name">Advanced</p>
+        <p class="plan-price">$12/mo</p>
+      </div>
+    </div>
+    <div class="plan-option" onclick="selectOption(3)" data-option="3">
+      <img src="assets/images/icon-pro.svg">
+      <div class="plan-info">
+        <p class="plan-name">Pro</p>
+        <p class="plan-price">$15/mo</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>

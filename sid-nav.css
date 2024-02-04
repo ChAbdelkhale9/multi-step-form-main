@@ -1,0 +1,67 @@
+.side-nav {
+  width: 210px;
+  background-image: url(assets/images/bg-sidebar-desktop.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  padding: 24px;
+  padding-top: 40px;
+}
+
+@media (max-width:870px) {
+  .side-nav {
+    width: 165px;
+  }
+}
+
+.step {
+
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+
+.step p {
+  margin: 0;
+}
+
+
+.step_icon {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  border: white solid 1px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.inStep {
+  background-color: rgb(188, 224, 255);
+  border: none;
+}
+
+.inStep p {
+  color: #0c2c5b;
+}
+
+.step_number {
+  color: rgb(148, 145, 255);
+  font-weight: 100;
+
+  font-size: 12px;
+  padding-bottom: 3px;
+}
+
+.step_name {
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
