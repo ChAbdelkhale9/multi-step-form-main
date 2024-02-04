@@ -71,6 +71,8 @@ back.addEventListener('click', () => {
 
 });
 
+
+
 phoneInput.addEventListener('keypress', (event) => {
   // Allow only numeric values, backspace, and delete key
   const allowedKeys = ['Backspace', 'Delete'];
@@ -78,7 +80,6 @@ phoneInput.addEventListener('keypress', (event) => {
     event.preventDefault();
   }
 })
-
 
 function isAllValidated() {
   let isAllValid = true;
