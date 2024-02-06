@@ -6,13 +6,32 @@ const back = document.querySelector('.back');
 const inputs = document.getElementsByClassName('input');
 const phoneInput = document.getElementById("phoneNumber")
 const errorMessages = document.getElementsByClassName('error');
-const steps = [".your-info", ".select-plan", ".test"];
+const addOns = document.querySelectorAll('.add-on');
+const addOnCheckboxes = document.querySelectorAll('.custom-checkbox');
+
+
+const steps = [".your-info", ".select-plan", ".add-ons"];
 
 let currentStep = 0;
 let isMonthly = true;
 
 
-let userInfo = [];
+let userInfo = {
+  profile: {
+    name: "",
+    email: "",
+    phoneNumber: "",
+  },
+  plan: {
+    planOption: "",
+    isMonthly: true
+  },
+  addOn: {
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false
+  }
+};
 
 
 
@@ -83,7 +102,11 @@ phoneInput.addEventListener('keypress', (event) => {
 
 function isAllValidated() {
   let isAllValid = true;
-  userInfo = [];
+  userInfo.profile = {
+    name: "",
+    email: "",
+    phoneNumber: "",
+  };
 
   for (let i = 0; i < inputs.length; i++) {
     const inputValue = inputs[i].value.trim(); // Trim the input value
@@ -92,21 +115,22 @@ function isAllValidated() {
       // Check if the trimmed input value is empty
       errorMessages[i].style.display = 'block';
       inputs[i].classList.add('isEmpty');
-      userInfo = [];  // Reset user information if any field is invalid
+      // Reset user information if any field is invalid
       isAllValid = false;
     } else {
       errorMessages[i].style.display = 'none';
       inputs[i].classList.remove('isEmpty');
+      isAllValid = false;
     }
   }
 
   // If all inputs are valid, populate the userInfo array
   if (isAllValid) {
-    userInfo.push({
+    userInfo[profile] = {
       name: inputs[0].value.trim(),
       email: inputs[1].value.trim(),
-      phoneNumber: inputs[2].value.trim(),
-    });
+      phoneNumber: inputs[2].value.trim()
+    };
   }
 
   console.log(userInfo);
@@ -120,13 +144,13 @@ function selectOption(option) {
 
   // Deselect the previously selected option if not the last selected
   if (selectedOption !== null && !isAlreadySelected) {
-    document.querySelector(`.plan-option[data-option="${selectedOption}"]`).classList.remove('selected');
+    document.querySelector(`.plan-option[data-option="${selectedOption}"]`).classList.remove('isSelected');
   }
 
   // Toggle selection for the clicked option
   if (!isAlreadySelected) {
     selectedOption = option;
-    document.querySelector(`.plan-option[data-option="${option}"]`).classList.add('selected');
+    document.querySelector(`.plan-option[data-option="${option}"]`).classList.add('isSelected');
   }
 }
 
@@ -166,3 +190,25 @@ function priceUpdate() {
     }
   }
 }
+
+
+
+
+
+addOns.forEach((addOn, index) => {
+  const serviceName = addOn.getAttribute('data-service-name');
+  const checkbox = addOnCheckboxes[index];
+
+  addOn.addEventListener('click', () => {
+    if (!userInfo.addOn[serviceName]) {
+      userInfo.addOn[serviceName] = true;
+      addOn.classList.add('isSelected');
+      checkbox.checked = true;
+    } else {
+      userInfo.addOn[serviceName] = false;
+      addOn.classList.remove('isSelected');
+      checkbox.checked = false;
+    }
+    console.log(userInfo);
+  });
+});
