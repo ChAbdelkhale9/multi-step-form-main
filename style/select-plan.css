@@ -18,7 +18,7 @@
 .plan-option {
   padding: 10px;
   padding-top: 15px;
-  height: 150px;
+  height: 140px;
   border-radius: 10px;
   border: rgb(226, 225, 228) solid 1px;
   display: flex;
@@ -65,7 +65,7 @@
   display: none;
 }
 
-.selected {
+.isSelected {
   border-color: rgb(93, 86, 154);
   background-color: rgb(248, 249, 254);
 }
@@ -98,7 +98,7 @@
   display: none;
 }
 
-label {
+.switch-label {
   cursor: pointer;
   text-indent: -9999px;
   width: 38px;
@@ -110,7 +110,7 @@ label {
   margin: 0 18px;
 }
 
-label:after {
+.switch-label:after {
   content: '';
   position: absolute;
   top: 4px;
@@ -122,11 +122,11 @@ label:after {
   transition: 0.3s;
 }
 
-.select-period:checked+label:after {
+.select-period:checked+.switch-label:after {
   left: calc(100% - 3px);
   transform: translateX(-100%);
 }
 
-label:active:after {
-  width: 13px;
+.switch-label:active:after {
+  width: 12px;
 }

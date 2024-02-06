@@ -1,4 +1,4 @@
-let selectedOption = null;
+
 const prices = [9, 12, 15]
 const checkbox = document.getElementById('switch');
 const next = document.querySelector('.next');
@@ -6,15 +6,15 @@ const back = document.querySelector('.back');
 const inputs = document.getElementsByClassName('input');
 const phoneInput = document.getElementById("phoneNumber")
 const errorMessages = document.getElementsByClassName('error');
+const plan_options = document.querySelectorAll('.plan-option');
 const addOns = document.querySelectorAll('.add-on');
 const addOnCheckboxes = document.querySelectorAll('.custom-checkbox');
 
-
+// need to handle info  for each input field and validate before  submitting the form
 const steps = [".your-info", ".select-plan", ".add-ons"];
 
 let currentStep = 0;
 let isMonthly = true;
-
 
 let userInfo = {
   profile: {
@@ -23,7 +23,7 @@ let userInfo = {
     phoneNumber: "",
   },
   plan: {
-    planOption: "",
+    planOption: "arcade", // Set "arcade" as the default option
     isMonthly: true
   },
   addOn: {
@@ -33,18 +33,9 @@ let userInfo = {
   }
 };
 
-
-
-
-selectOption(1)
 next.addEventListener('click', () => {
 
   // Check if there are no more steps
-  if (currentStep + 1 >= steps.length) {
-    next.style.display = "none";
-    console.log("Button disappeared");
-    return;
-  }
 
   console.log("Current Step:", currentStep);
 
@@ -68,6 +59,12 @@ next.addEventListener('click', () => {
   if (currentStep > 0) {
     back.classList.remove('noneBack');
   }
+  if (currentStep + 1 >= steps.length) {
+    next.style.display = "none";
+    console.log("Button disappeared");
+    return;
+  }
+
 });
 
 
@@ -109,70 +106,61 @@ function isAllValidated() {
   };
 
   for (let i = 0; i < inputs.length; i++) {
-    const inputValue = inputs[i].value.trim(); // Trim the input value
+    const inputValue = inputs[i].value.trim();
 
     if (!inputValue) {
-      // Check if the trimmed input value is empty
       errorMessages[i].style.display = 'block';
       inputs[i].classList.add('isEmpty');
-      // Reset user information if any field is invalid
-      isAllValid = false;
+      isAllValid = false;  // Set to false only if an invalid field is found
     } else {
       errorMessages[i].style.display = 'none';
       inputs[i].classList.remove('isEmpty');
-      isAllValid = false;
+      // Populate userInfo only if all fields are valid
+      userInfo.profile[inputs[i].name] = inputValue;
     }
-  }
-
-  // If all inputs are valid, populate the userInfo array
-  if (isAllValid) {
-    userInfo[profile] = {
-      name: inputs[0].value.trim(),
-      email: inputs[1].value.trim(),
-      phoneNumber: inputs[2].value.trim()
-    };
   }
 
   console.log(userInfo);
   return isAllValid;
 }
 
+plan_options.forEach((option) => {
+  const option_name = option.getAttribute('data-option');
 
-function selectOption(option) {
-  // Check if the clicked option is already selected
-  const isAlreadySelected = selectedOption === option;
+  option.addEventListener('click', () => {
+    const previousSelectedOption = document.querySelector(`.plan-option.isSelected`);
 
-  // Deselect the previously selected option if not the last selected
-  if (selectedOption !== null && !isAlreadySelected) {
-    document.querySelector(`.plan-option[data-option="${selectedOption}"]`).classList.remove('isSelected');
+    if (previousSelectedOption) {
+      previousSelectedOption.classList.remove('isSelected');
+    }
+
+    userInfo.plan.planOption = option_name;
+    option.classList.add('isSelected');
+  });
+
+  // Set "arcade" as selected by default
+  if (option_name === userInfo.plan.planOption) {
+    option.classList.add('isSelected');
   }
-
-  // Toggle selection for the clicked option
-  if (!isAlreadySelected) {
-    selectedOption = option;
-    document.querySelector(`.plan-option[data-option="${option}"]`).classList.add('isSelected');
-  }
-}
-
-
+});
 
 checkbox.addEventListener('change', function () {
   if (checkbox.checked) {
     document.querySelector(".yearly").classList.add('inPlan');
     document.querySelector(".monthly").classList.remove('inPlan');
-    isMonthly = false;
+    userInfo.plan.isMonthly = false;
     priceUpdate()
   } else {
     document.querySelector(".monthly").classList.add('inPlan');
     document.querySelector('.yearly').classList.remove('inPlan');
-    isMonthly = true;
+    userInfo.plan.isMonthly = true
     priceUpdate();
   }
 }
 );
 
 function priceUpdate() {
-  if (isMonthly) {
+  if (userInfo.plan.isMonthly) {
     for (let i = 0; i < 3; i++) {
       optionPrice = document.getElementById(`price-${i + 1}`)
       optionPrice.innerText = `$${prices[i]}/mo`;

@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'obunto';
   src: url('../assets/fonts/Ubuntu-Bold.ttf');
-  font-weight: 700;
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'obunto';
   src: url('../assets/fonts/Ubuntu-Medium.ttf');
-  font-weight: 500;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'obunto';
   src: url('../assets/fonts/Ubuntu-Regular.ttf');
-  font-weight: 100;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -56,7 +56,7 @@ body {
 @media (max-width:870px) {
   .form_card {
     width: 670px;
-    height: 500px;
+    height: 520px;
   }
 }
 
