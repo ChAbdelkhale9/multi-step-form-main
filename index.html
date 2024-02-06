@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style/sid-nav.css">
   <link rel="stylesheet" href="style/select-plan.css">
   <link rel="stylesheet" href="style/add-ons.css">
+  <link rel="stylesheet" href="style/summary.css">
   <title>Frontend Mentor | Multi-step form</title>
 </head>
 
@@ -133,7 +134,7 @@
               <p class="service-name">Online service</p>
               <p class="service-disciption">Access to multiplayer games</p>
             </div>
-            <p class="service-price">+$1/mo</p>
+            <p class="service-price" id="service-price-1">+$1/mo</p>
           </div>
           <div class="add-on" data-service-name="largerStorage">
             <div><label class="checkbox-container">
@@ -144,7 +145,7 @@
               <p class="service-name">Larger storage</p>
               <p class="service-disciption">Extra 1TB of cloud save</p>
             </div>
-            <p class="service-price">+$2/mo</p>
+            <p class="service-price" id="service-price-2">+$2/mo</p>
           </div>
           <div class="add-on" data-service-name="CustomizableProfile">
             <div><label class="checkbox-container">
@@ -155,7 +156,13 @@
               <p class="service-name">Customizable profile</p>
               <p class="service-disciption">Custom theme on your profile</p>
             </div>
-            <p class="service-price">+$2/mo</p>
+            <p class="service-price" id="service-price-3">+$2/mo</p>
+          </div>
+        </div>
+        <div class="summary">
+          <div class="titles">
+            <p class="title">Finishing up</p>
+            <p class="subtitle">Double-check everything looks like ok before confirming.</p>
           </div>
         </div>
         <div class="btns">

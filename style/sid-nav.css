@@ -43,6 +43,8 @@
 
 .inStep {
   background-color: rgb(188, 224, 255);
+  height: 34px;
+  width: 34px;
   border: none;
 }
 

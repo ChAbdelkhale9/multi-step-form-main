@@ -1,5 +1,6 @@
 
-const prices = [9, 12, 15]
+const prices_plan = [9, 12, 15]
+const prices_addon = [1, 2, 2]
 const checkbox = document.getElementById('switch');
 const next = document.querySelector('.next');
 const back = document.querySelector('.back');
@@ -11,7 +12,7 @@ const addOns = document.querySelectorAll('.add-on');
 const addOnCheckboxes = document.querySelectorAll('.custom-checkbox');
 
 // need to handle info  for each input field and validate before  submitting the form
-const steps = [".your-info", ".select-plan", ".add-ons"];
+const steps = [".your-info", ".select-plan", ".add-ons", ".summary"];
 
 let currentStep = 0;
 let isMonthly = true;
@@ -159,25 +160,28 @@ checkbox.addEventListener('change', function () {
 }
 );
 
+
+
 function priceUpdate() {
-  if (userInfo.plan.isMonthly) {
-    for (let i = 0; i < 3; i++) {
-      optionPrice = document.getElementById(`price-${i + 1}`)
-      optionPrice.innerText = `$${prices[i]}/mo`;
-      document.querySelectorAll(".free-months").forEach(element => {
-        element.style.display = "none";
-      });
-    }
-  } else {
-    for (let i = 0; i < 3; i++) {
-      optionPrice = document.getElementById(`price-${i + 1}`)
-      optionPrice.innerText = `$${prices[i] * 10}/yr`;
-      document.querySelectorAll(".free-months").forEach(element => {
-        element.style.display = "block";
-      });
-    }
+  const planType = userInfo.plan.isMonthly ? 'mo' : 'yr';
+
+  for (let i = 0; i < 3; i++) {
+    const optionPrice = document.getElementById(`price-${i + 1}`);
+    const addonPrice = document.getElementById(`service-price-${i + 1}`);
+
+    const priceValue = userInfo.plan.isMonthly ? prices_plan[i] : prices_plan[i] * 10;
+    const addonValue = userInfo.plan.isMonthly ? prices_addon[i] : prices_addon[i] * 10;
+
+    optionPrice.innerText = `$${priceValue}/${planType}`;
+    addonPrice.innerText = `$${addonValue}/${planType}`;
   }
+
+  const displayValue = userInfo.plan.isMonthly ? 'none' : 'block';
+  document.querySelectorAll(".free-months").forEach(element => {
+    element.style.display = displayValue;
+  });
 }
+
 
 
 
