@@ -1,0 +1,14 @@
+.thank-you {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.thank-you-icon {
+  align-self: center;
+  height: 85px;
+  margin-bottom: 30px;
+}

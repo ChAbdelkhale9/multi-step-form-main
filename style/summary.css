@@ -1,3 +1,82 @@
 .summary {
+  display: none;
   width: 100%;
+}
+
+.charges {
+  background-color: rgb(248, 249, 254);
+  width: 100%;
+  border-radius: 5px;
+}
+
+.charge,
+.charge-plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px;
+
+}
+
+.add-on-charge {
+  display: none;
+}
+
+.charge-plan {
+  padding: 25px 20px;
+}
+
+
+
+.plan-option-charge {
+  font-weight: 800;
+  font-size: 15px;
+  color: rgb(19, 38, 74);
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+
+
+.line {
+  display: none;
+  height: 1px;
+  background-color: rgb(231, 232, 237);
+  margin: 0 20px;
+}
+
+.charges-text {
+  font-weight: 400;
+  color: rgb(159, 159, 168);
+  margin: 0;
+}
+
+.link {
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: rgb(3, 41, 90);
+}
+
+.price-charge {
+  font-weight: 700;
+  margin: 0;
+}
+
+.price {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+}
+
+.price-total {
+  font-weight: 900;
+  font-size: 18px;
+  color: rgb(96, 85, 197);
+  margin: 0;
 }

@@ -3,6 +3,7 @@ const prices_plan = [9, 12, 15]
 const prices_addon = [1, 2, 2]
 const checkbox = document.getElementById('switch');
 const next = document.querySelector('.next');
+const confirm = document.querySelector('.confirm');
 const back = document.querySelector('.back');
 const inputs = document.getElementsByClassName('input');
 const phoneInput = document.getElementById("phoneNumber")
@@ -62,16 +63,28 @@ next.addEventListener('click', () => {
   }
   if (currentStep + 1 >= steps.length) {
     next.style.display = "none";
+    confirm.style.display = "block";
     console.log("Button disappeared");
     return;
   }
 
 });
-
+confirm.addEventListener('click', function () {
+  const summery = document.querySelector('.summary')
+  const thank_you = document.querySelector('.thank-you')
+  thank_you.style.display = 'flex';
+  summery.style.display = 'none';
+  confirm.style.display = "none";
+  back.style.display = "none";
+})
 
 
 back.addEventListener('click', () => {
-  next.style.display = "block";
+  if (currentStep + 1 == steps.length) {
+    confirm.style.display = "none";
+    next.style.display = "block";
+  }
+
   currentStep -= 1;
   if (currentStep === 0) {
     back.classList.add('noneBack')
